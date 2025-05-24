@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page01 - Formulario Animado</title>
+    <link rel="stylesheet" href="styles01.css"
+    
+</head>
+<body>
+    <div class="form-container">
+        <!-- Barra de iconos SVG -->
+        <div class="icon-bar">
+            <svg class="icon" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+            </svg>
+            <svg class="icon" viewBox="0 0 24 24">
+                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+            <svg class="icon" viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/>
+            </svg>
+            <svg class="icon" viewBox="0 0 24 24">
+                <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/>
+            </svg>
+        </div>
+
+        <!-- Formulario con campos animados -->
+        <form>
+            <!-- Campo de texto 1 -->
+            <div class="form-group">
+                <input type="text" id="name" class="form-input" placeholder=" ">
+                <label for="name" class="form-label">Nombre</label>
+            </div>
+
+            <!-- Campo de texto 2 -->
+            <div class="form-group">
+                <input type="email" id="email" class="form-input" placeholder=" ">
+                <label for="email" class="form-label">Email</label>
+            </div>
+
+            <!-- Campo de texto 3 -->
+            <div class="form-group">
+                <input type="text" id="subject" class="form-input" placeholder=" ">
+                <label for="subject" class="form-label">Asunto</label>
+            </div>
+
+            <!-- Campo para imagen con drag and drop -->
+            <div class="image-drop" id="drop-area">
+                <svg viewBox="0 0 24 24">
+                    <path d="M19 7v2.99s-1.99.01-2 0V7h-3s.01-1.99 0-2h3V2h2v3h3v2h-3zm-3 4V8h-3V5H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-8h-5zM5 19l3-4 2 3 3-4 4 5H5z"/>
+                </svg>
+                <input type="file" id="file-input" class="file-input" accept="image/*">
+            </div>
+            <div class="file-path" id="file-path">Arrastra una imagen aquí</div>
+
+            <!-- Checkbox -->
+            <div class="checkbox-group">
+                <input type="checkbox" id="terms" class="checkbox-input">
+                <label for="terms">Acepto los términos y condiciones</label>
+            </div>
+
+            <!-- Botones -->
+            <div class="button-group">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="reset" class="btn btn-secondary">Limpiar</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Código para el drag and drop de imágenes
+        const dropArea = document.getElementById('drop-area');
+        const fileInput = document.getElementById('file-input');
+        const filePath = document.getElementById('file-path');
+
+        // Prevenir comportamiento predeterminado
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        // Destacar área al arrastrar
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropArea.addEventListener(eventName, highlight, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, unhighlight, false);
+        });
+
+        function highlight() {
+            dropArea.classList.add('highlight');
+        }
+
+        function unhighlight() {
+            dropArea.classList.remove('highlight');
+        }
+
+        // Manejar archivos soltados
+        dropArea.addEventListener('drop', handleDrop, false);
+
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            handleFiles(files);
+        }
+
+        fileInput.addEventListener('change', function() {
+            handleFiles(this.files);
+        });
+
+        function handleFiles(files) {
+            if (files.length > 0) {
+                const file = files[0];
+                filePath.textContent = file.name;
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+

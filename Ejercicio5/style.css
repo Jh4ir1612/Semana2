@@ -1,0 +1,138 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #e0f7fa, #e1bee7);
+  margin: 0;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 60px;
+  color: #333;
+  font-size: 2.8em;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 260px;
+  height: 340px;
+  perspective: 1200px;
+  transition: transform 0.3s ease;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+  border-radius: 20px;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+}
+
+.card-front {
+  background-size: cover;
+  background-position: center;
+  /* position: relative;
+  overflow: hidden; */
+}
+
+.card-front::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.card-front h2,
+.card-front p {
+  position: relative;
+  z-index: 2;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+/* Asignación de imágenes de fondo */
+.card:nth-child(1) .card-front {
+  background-image: url('imagenes/imagen1.png');
+}
+
+.card:nth-child(2) .card-front {
+  background-image: url('imagenes/imagen2.PNG');
+}
+
+.card:nth-child(3) .card-front {
+  background-image: url('imagenes/imagen3.jpg');
+}
+
+/* Estilos para el reverso de las tarjetas */
+.card:nth-child(1) .card-back {
+  background-image: url('imagenes/imagen1.png');
+}
+
+.card:nth-child(2) .card-back {
+  background-image: url('imagenes/imagen2.PNG');
+}
+
+.card:nth-child(3) .card-back {
+  background-image: url('imagenes/imagen3.jpg');
+}
+
+.card h2 {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 1em;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  margin-top: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 10px 24px;
+  border-radius: 8px;
+  border: 1px solid white;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: background-color 0.3s;
+}
+
+a:hover {
+  background-color: rgba(255, 255, 255, 0.35);
+}

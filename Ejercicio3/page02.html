@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controlador de volumen y color</title>
+  <link rel="stylesheet" href="style02.css">
+</head>
+<body>
+
+  <!-- Parte A -->
+  <div class="window">
+    <div class="title-bar">
+      <svg width="24" height="24" fill="white"><circle cx="12" cy="12" r="4"/></svg>
+      <svg width="24" height="24" fill="white"><rect x="6" y="6" width="12" height="12"/></svg>
+      <svg width="24" height="24" fill="white"><polygon points="12,4 20,20 4,20"/></svg>
+      <svg width="24" height="24" fill="white"><line x1="4" y1="12" x2="20" y2="12" stroke="white" stroke-width="2"/></svg>
+    </div>
+
+    <form class="form">
+      <label>Media volume</label>
+      <input type="range">
+
+      <label>Alarm volume</label>
+      <input type="range">
+
+      <label>
+        <input type="checkbox"> Icon click callback
+      </label>
+
+      <input type="text" placeholder="Campo 1">
+      <input type="text" placeholder="Campo 2">
+      <input type="text" placeholder="Campo 3">
+
+      <div class="buttons">
+        <button type="button">Guardar</button>
+        <button type="reset">Cancelar</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Parte B -->
+  <div class="color-card">
+    <div class="color-box" id="colorBox"></div>
+    <div class="color-controls">
+      <div class="color-control">
+        <label>R</label>
+        <input type="range" id="rRange" min="0" max="255" value="80">
+        <input type="number" id="rValue" min="0" max="255" value="80">
+      </div>
+      <div class="color-control">
+        <label>G</label>
+        <input type="range" id="gRange" min="0" max="255" value="165">
+        <input type="number" id="gValue" min="0" max="255" value="165">
+      </div>
+      <div class="color-control">
+        <label>B</label>
+        <input type="range" id="bRange" min="0" max="255" value="92">
+        <input type="number" id="bValue" min="0" max="255" value="92">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const rRange = document.getElementById('rRange');
+    const gRange = document.getElementById('gRange');
+    const bRange = document.getElementById('bRange');
+    const rValue = document.getElementById('rValue');
+    const gValue = document.getElementById('gValue');
+    const bValue = document.getElementById('bValue');
+    const colorBox = document.getElementById('colorBox');
+
+    function updateColor() {
+      const r = parseInt(rRange.value);
+      const g = parseInt(gRange.value);
+      const b = parseInt(bRange.value);
+
+      rValue.value = r;
+      gValue.value = g;
+      bValue.value = b;
+
+      colorBox.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    }
+
+    function syncSliderAndInput(range, input) {
+      range.addEventListener('input', updateColor);
+      input.addEventListener('input', () => {
+        let val = Math.max(0, Math.min(255, parseInt(input.value) || 0));
+        range.value = val;
+        updateColor();
+      });
+    }
+
+    syncSliderAndInput(rRange, rValue);
+    syncSliderAndInput(gRange, gValue);
+    syncSliderAndInput(bRange, bValue);
+
+    updateColor();
+  </script>
+
+</body>
+</html>
