@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Moderna con CSS3</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">WebCSS3</a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#" class="nav-link">Inicio</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Servicios</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Portafolio</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Contacto</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero-title">Diseño Web Moderno</h1>
+                <p class="hero-text">Utilizando las últimas tecnologías: CSS3, Flexbox y Grid</p>
+                <a href="#" class="btn btn-primary">Saber más</a>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Nuestras Características</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-mobile-alt feature-icon"></i>
+                        <h3>Responsivo</h3>
+                        <p>Diseño que se adapta a todos los dispositivos móviles y pantallas.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-tachometer-alt feature-icon"></i>
+                        <h3>Rápido</h3>
+                        <p>Optimizado para máxima velocidad de carga y rendimiento.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-lock feature-icon"></i>
+                        <h3>Seguro</h3>
+                        <p>Protegido contra vulnerabilidades y amenazas en línea.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery">
+            <div class="container">
+                <h2 class="section-title">Galería de Imágenes</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="imagen/imagen1.jpg" alt="Imagen 1" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Proyecto 1</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="imagen/imagen2.jpg" alt="Imagen 2" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Proyecto 2</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="imagen/imagen3.jpg" alt="Imagen 3" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Proyecto 3</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="imagen/imagen4.png" alt="Imagen 4" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3>Proyecto 4</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <h2 class="section-title">Testimonios</h2>
+                <div class="testimonial-slider">
+                    <div class="testimonial">
+                        <img src="imagen/imagen5.png" alt="Cliente 1" class="testimonial-img">
+                        <blockquote>
+                            "Increíble trabajo, el diseño superó todas mis expectativas."
+                        </blockquote>
+                        <cite>- Jhair Vasquez Huaman</cite>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-title">WebCSS3</h3>
+                    <p>Diseño web moderno utilizando las últimas tecnologías CSS.</p>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">Enlaces</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Servicios</a></li>
+                        <li><a href="#">Portafolio</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">Contacto</h3>
+                    <address>
+                        <p><i class="fas fa-map-marker-alt"></i> Universitaria, Ciudad</p>
+                        <p><i class="fas fa-phone"></i> 932018712</p>
+                        <p><i class="fas fa-envelope"></i> info@webcss3.com</p>
+                    </address>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 JhairVasquez. Todos los derechos reservados.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
